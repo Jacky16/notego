@@ -19,3 +19,7 @@ semi = true
 [*.{html,css,yml,yaml,sh,bash}]
 indent_style = space
 indent_size = 2
+
+[.husky/**]
+indent_style = space
+indent_size = 4
