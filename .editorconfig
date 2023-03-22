@@ -9,13 +9,15 @@ indent_size = 4
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = false
-insert_final_newline = false
+insert_final_newline = true
 
 [*.{js,jsx,ts,tsx}]
 max_line_length = 130
 quote_type = double
 semi = true
 
-[*.{html,css}]
-indent_style = space
+[*.{html,css,yml,yaml,sh,bash}]
+indent_size = 2
+
+[.husky/**]
 indent_size = 2

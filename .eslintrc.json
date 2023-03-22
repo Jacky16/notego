@@ -5,9 +5,9 @@
         "node": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "xo",
         "next/core-web-vitals",
+        "xo",
+        "plugin:react/recommended",
         "prettier"
     ],
     "overrides": [
@@ -18,7 +18,8 @@
                 "import/first": "error",
                 "import/no-duplicates": "error",
                 "no-duplicate-imports": "error",
-                "no-unused-vars": ["error"]
+                "no-unused-vars": ["error"],
+                "react/react-in-jsx-scope": "off"
             }
         }
     ],
@@ -27,10 +28,5 @@
         "sourceType": "module"
     },
     "plugins": ["react", "import"],
-    "rules": {
-        "import/first": "error",
-        "import/no-duplicates": "error",
-        "no-duplicate-imports": "error",
-        "no-unused-vars": ["error"]
-    }
+    "rules": {}
 }
