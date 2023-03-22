@@ -16,6 +16,6 @@ max_line_length = 130
 quote_type = double
 semi = true
 
-[*.{html,css}]
+[*.{html,css,yml,yaml}]
 indent_style = space
 indent_size = 2
