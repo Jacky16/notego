@@ -6,7 +6,7 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 no_color='\033[0m'
 
-echo -e "\n${yellow}Executing pre-commit hook...${no_color}\n"
+echo -e "\n${yellow}Executing pre-commit hook...${no_color}\n";
 
 FILES_PATTERN='\.(jsx?|tsx?)(\..+)?$'
 FORBIDDEN='console\.[clear|dir|log|info|warn|error]'
@@ -38,11 +38,16 @@ fi
 echo -e "${green}No console. or debugger references found!${no_color}\n"
 echo -e "${green}Git pre-commit hook was successful!${no_color}\n"
 
-if >/dev/console 2>&1
-then
-    echo -e "${green}Running lint-staged...${no_color}\n"
+if [ "$(uname)" = "Linux" ]; then
+  console_device="/dev/tty"
 else
-    echo -e "${yellow}Running lint-staged...${no_color}\n"
+  console_device="/dev/console"
+fi
+
+if lint-staged >"$console_device" 2>&1; then
+  echo -e "${green}Running lint-staged...${no_color}\n"
+else
+  echo -e "${yellow}Running lint-staged...${no_color}\n"
 fi
 
 npx lint-staged
